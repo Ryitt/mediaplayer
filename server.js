@@ -47,7 +47,22 @@ router.get('/api', function(req, res) {
     }
     var dbresp = "";
     for(var solution in rows) {
-      console.log('Table', solution + ': ', rows[solution].Tables_in_mediaplayer);
+      //console.log('Table', solution + ': ', rows[solution].Tables_in_mediaplayer);
+      //res.json({ message: 'hooray! welcome to our api!' });
+      dbresp += 'Tables: ' + rows[solution].Tables_in_mediaplayer + ' | ';
+    }
+    res.json({ message: dbresp });
+  });
+  
+  connection.query('SELECT * FROM kappale', function(err, rows, fields) {
+	console.log("rows:", rows);
+    if (err) {
+      console.log(err);
+      throw err;
+    }
+    var dbresp = "";
+    for(var solution in rows) {
+      //console.log('Table', solution + ': ', rows[solution].Tables_in_mediaplayer);
       //res.json({ message: 'hooray! welcome to our api!' });
       dbresp += 'Tables: ' + rows[solution].Tables_in_mediaplayer + ' | ';
     }
