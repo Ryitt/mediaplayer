@@ -52,6 +52,7 @@ router.get('/api', function(req, res) {
       dbresp += 'Tables: ' + rows[solution].Tables_in_mediaplayer + ' | ';
     }
     res.json({ message: dbresp });
+	console.log(dbresp);
   });
   
   connection.query('SELECT * FROM kappale', function(err, rows, fields) {
@@ -67,6 +68,7 @@ router.get('/api', function(req, res) {
       dbresp += 'Tables: ' + rows[solution].Tables_in_mediaplayer + ' | ';
     }
     res.json({ message: dbresp });
+	console.log(dbresp);
   });
 
   connection.end();
